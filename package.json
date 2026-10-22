@@ -1,0 +1,9 @@
+{
+  "name": "pickup-counter",
+  "private": true,
+  "scripts": {
+    "start": "docker compose up --build",
+    "test": "docker compose --profile test run --rm tests",
+    "send-webhook": "npm --prefix backend run send-webhook --"
+  }
+}

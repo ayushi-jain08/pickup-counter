@@ -1,0 +1,35 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f6f6f4; color: #1d1d1b; }
+main { max-width: 820px; margin: 0 auto; padding: 16px; }
+h1 { margin: 8px 0 16px; }
+h2 { margin: 0 0 12px; font-size: 1.15rem; }
+ul { list-style: none; margin: 0; padding: 0; }
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.45; }
+code { background: #ececea; padding: 2px 6px; border-radius: 4px; word-break: break-all; }
+.muted { color: #6b6b66; font-size: 0.9rem; }
+.error { color: #b3261e; }
+
+.shop { display: grid; grid-template-columns: 3fr 2fr; gap: 16px; align-items: start; }
+@media (max-width: 640px) { .shop { grid-template-columns: 1fr; } }
+section, .payment { background: #fff; border: 1px solid #e2e2de; border-radius: 10px; padding: 16px; }
+
+.products li { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+.products li:last-child { border-bottom: none; }
+.products li.sold-out strong { color: #999; }
+.stepper { display: flex; align-items: center; gap: 10px; }
+.stepper button { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #ccc; background: #fff; font-size: 1.2rem; }
+.stepper span { min-width: 1.5em; text-align: center; }
+
+.cart li, .summary li { display: flex; justify-content: space-between; padding: 4px 0; }
+.total { font-weight: 600; }
+.summary .total { border-top: 1px solid #eee; margin-top: 4px; padding-top: 8px; }
+.primary { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #1f6f43; color: #fff; font-weight: 600; margin-top: 8px; }
+
+.payment { max-width: 480px; margin: 0 auto; }
+.countdown { font-size: 3rem; font-weight: 700; text-align: center; margin: 16px 0; font-variant-numeric: tabular-nums; }
+.message { border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+.message.ok { background: #e6f4ea; }
+.message.warn { background: #fdf0e1; }
+.dev { margin-top: 16px; font-size: 0.85rem; color: #6b6b66; }
+.dev code { display: block; margin-top: 6px; }
