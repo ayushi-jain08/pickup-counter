@@ -5,7 +5,9 @@ Backend: Node.js + Express 5 + TypeScript + PostgreSQL 16 (raw SQL via `pg`). Fr
 
 ## Running it
 
-Needs Docker only.
+Either command starts everything. Pick one.
+
+**Option A: everything in Docker** (needs Docker only)
 
 ```bash
 docker compose up --build
@@ -15,7 +17,17 @@ docker compose up --build
 - API: http://localhost:3000 (also proxied at http://localhost:8080/api)
 - PostgreSQL: `localhost:5433` (user/password/db `pickup`)
 
+**Option B: local dev with hot reload** (needs Node 20+)
+
+```bash
+npm run dev
+```
+
+This installs dependencies if needed, starts PostgreSQL in Docker, then runs the backend (http://localhost:3000) and the Vite screen (http://localhost:5173) together. To use your own PostgreSQL and skip Docker completely, set `DATABASE_URL` first, e.g. `DATABASE_URL=postgres://user:pass@localhost:5432/pickup npm run dev`. Stop Option A's backend first (`docker compose stop backend frontend`), since both use port 3000.
+
 The catalogue (5 snacks) is seeded on first start. `docker compose down -v` resets everything.
+
+No `.env` file is needed. Compose and `npm run dev` both default `WEBHOOK_SECRET` to `dev-webhook-secret`. Optional overrides: `WEBHOOK_SECRET`, `HOLD_SECONDS` (default 120), `PORT` (3000).
 
 ### Paying for an order (simulated provider)
 
